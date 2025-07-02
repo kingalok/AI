@@ -1,10 +1,13 @@
 # janus_connector.py
-from server.auth_server import create_session  # Or wherever your session logic is
 
-def janus_query(query: str) -> list[dict]:
-    session = create_session()
-    if not session:
-        raise Exception("Could not authenticate with Janus")
+from langchain.tools import tool
 
-    result = session.sql(query).to_arrow().to_pylist()
-    return result
+@tool
+def query_janus(query: str) -> str:
+    """Executes SQL query against Janus and returns results as string."""
+    from janus_connector import janus_query
+    try:
+        result = janus_query(query)
+        return str(result)
+    except Exception as e:
+        return f"Error querying Janus: {e}"
