@@ -1,0 +1,20 @@
+# LLM + LangChain
+langchain>=0.1.20
+langchain-community>=0.0.36
+langchain-core>=0.1.50
+
+# Azure OpenAI
+openai>=1.30.1
+azure-identity>=1.15.0
+langchain-openai>=0.1.7
+
+# SQLAlchemy for Janus/Trino/Starburst
+sqlalchemy>=2.0.30
+trino>=0.324.0  # Trino DBAPI driver (Starburst/Janus compatible)
+
+# UI
+streamlit>=1.35.0
+python-dotenv>=1.0.1
+
+# Optional Utilities
+requests>=2.32.3
